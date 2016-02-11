@@ -1,0 +1,361 @@
+@font-face {
+    font-family: 'MyriadPro-Regular';
+    src: url('../fonts/MyriadPro-Regular.otf') format('truetype');
+}
+@font-face {
+    font-family: 'SourceSansPro-Regular';
+    src: url('../fonts/SourceSansPro-Regular.otf') format('truetype');
+}
+/*@font-face {
+    font-family: 'SourceSansPro-light';
+    src: url('../fonts/SourceSansPro-light.otf') format('truetype');
+}*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.navbar{
+    position: fixed;
+    z-index:999;
+    opacity:0.8;
+    top:0;
+    left:0;
+    width:100%;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+a:hover, a:focus{
+    color: black;
+    text-decoration: none;
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    background-color: rgba(30, 40, 49, 1);
+    padding: 50px;
+}
+
+#connectionContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    border-radius: 7px;
+    -webkit-box-shadow: 0px 5px 15px 2px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 5px 15px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 5px 15px 2px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+#diaporama{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    list-style:none;
+}
+#diaporama li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px -3px 1px 0px rgba(0, 0, 0, 0.7)inset, 0px 0px 1px 1px rgba(255, 255, 255, 0.4) inset;
+    -moz-box-shadow:2px -3px 1px 0px rgba(0, 0, 0, 0.7)inset, 0px 0px 1px 1px rgba(255, 255, 255, 0.4) inset;
+    box-shadow:2px -3px 1px 0px rgba(0, 0, 0, 0.7)inset, 0px 0px 1px 1px rgba(255, 255, 255, 0.4) inset;
+
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease ;
+    -ms-transition: 0.5s ease ;
+    -o-transition: 0.5s ease ;
+    transition: 0.5s ease ;
+}
+#diaporama .active{
+    opacity: 1;
+
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease ;
+    -ms-transition: 0.5s ease ;
+    -o-transition: 0.5s ease ;
+    transition: 0.5s ease ;
+}
+
+#loginConntainer{
+    width: 370px;
+    height: 580px;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-top: -290px;
+    margin-left: -185px;
+    -webkit-box-shadow: 0px 3px 5px 3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 3px 5px 3px rgba(0,0,0,0.6);
+    box-shadow: 0px 3px 5px 3px rgba(0,0,0,0.6);
+    overflow: hidden;
+}
+.positionBlur{
+    width: 1000px;
+    height: 1000px;
+    top: 50%;
+    left: 50%;
+    margin-top: -500px;
+    margin-left: -500px;
+    overflow: hidden;
+    position: absolute;;
+}
+.blurLogin{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    -webkit-filter: blur(10px) brightness(150%);
+    -mos-filter: blur(10px) brightness(150%);
+    -moz-filter: blur(10px) brightness(150%);
+    -o-filter: blur(10px) brightness(150%);
+    filter: blur(10px) brightness(150%);
+}
+.gradiente{
+    background: linear-gradient(to top, rgba(231, 220, 147, 0.6) -20%, rgba(30, 40, 49,0.5) 70%);
+    width: 380px;
+    height: 590px;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-top: -295px;
+    margin-left: -190px;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5),0px 1px 2px 5px rgba(255, 255, 255, 0.1) inset;
+    -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5),0px 1px 2px 5px rgba(255, 255, 255, 0.1) inset;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5),0px 1px 2px 5px rgba(255, 255, 255, 0.1) inset;
+}
+.topConnection{
+    width: 100%;
+    height: 40%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.topRegistration{
+    width: 100%;
+    height: 35%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.logoIUT{
+    position: relative;
+    display: block;
+    height: 100px;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    float: left;
+}
+.imgLogo{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: url("../img/auth/logoCUBE.png") 50% 50% no-repeat;
+    background-size: 80px;
+    float: left;
+}
+.textLogo{
+    overflow: hidden;
+    width: 200px;
+    height: 100%;
+    float: left;
+
+}
+.textLogoContainer{
+    width:200px;
+    height:100px;
+    position: relative;
+    display: block;
+    top:0;
+    left:0;
+
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease ;
+    -ms-transition: 0.5s ease ;
+    -o-transition: 0.5s ease ;
+    transition: 0.5s ease ;
+
+    -webkit-transform: translateX(-200px);
+    -moz-transform: translateX(-200px);
+    -ms-transform: translateX(-200px);
+    -o-transform: translateX(-200px);
+    transform: translateX(-200px);
+
+}
+.textLogoContainer p{
+    color: white;
+    font-family: 'SourceSansPro-light', Verdana, sans-serif;
+    font-size: 1.3em;
+
+}
+.textLogoContainer p span{
+    color: #96be3e;
+    font-family: 'MyriadPro-Regular', Verdana, sans-serif;
+    font-size: 1.6em;
+}
+.bottomConnection{
+    width: 100%;
+    height: 60%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.bottomRegistration{
+    width: 100%;
+    height: 60%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.bottomConnection form,
+.bottomRegistration form{
+    width: 100%;
+    height: 100%;
+    padding: 0 50px;
+}
+.bottomConnection form fieldset,
+.bottomRegistration form fieldset{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.inputLog{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    float: left;
+    border-bottom: 1px solid white;
+
+}
+.inputRegist{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    float: left;
+    border-bottom: 1px solid white;
+}
+.inputNameRegist{
+    width: 102.5px;
+}
+.inputNameRegist:nth-child(1) .imginput{
+    width:50px;
+}
+.inputNameRegist:nth-child(1) input{
+    width: 102.5px;
+}
+.inputNameRegist:nth-child(1){
+    width: 152.5px;
+}
+.inputNameRegist:nth-child(2){
+    float: right;
+}
+.inputNameRegist:nth-child(2) input{
+    width:100%;
+}
+.inputLog input, .inputRegist input{
+    width: 82.5%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-family: 'SourceSansPro-light', Verdana, sans-serif;
+    font-size: 1.3em;
+    float: left;
+    padding: 5px;
+}
+.imginput{
+    width: 17.5%;
+    height: 50px;
+    float: left;
+}
+.imgUser{
+    background: url("../img/auth/usericon.png") 50% 50% no-repeat;
+}
+.imgPassword{
+    background: url("../img/auth/passwordicon.png") 50% 50% no-repeat;
+}
+.imgmail{
+    background: url("../img/auth/mailicon.png") 50% 50% no-repeat;
+}
+.inputLog input[type="text"]:focus, .inputLog input[type="password"]:focus, .inputLog input[type="email"]:focus, input[type="submit"]:focus,
+.inputRegist input[type="text"]:focus, .inputRegist input[type="password"]:focus, .inputRegist input[type="email"]:focus{
+    outline: -webkit-focus-ring-color auto 0px;
+}
+.submitLog{
+    width: 50%;
+    position: relative;
+    left: 50%;
+    height: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    margin-left: -25%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+.submitLog input{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-family: 'SourceSansPro-light', Verdana, sans-serif;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+.help-block{
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    color: #737373;
+    z-index: 99;
+    position: absolute;
+    height: 25px;
+    width: 280px;
+    line-height: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.rstCo{
+    position: relative;
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    display: block;
+    top: -20px;
+}
+.has-error{
+    background-color: rgba(255, 0, 0, 0.3);
+}
