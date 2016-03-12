@@ -44,7 +44,7 @@ a:hover, a:focus{
     display: block;
     top: 0;
     left: 0;
-    background-color: rgba(30, 40, 49, 1);
+    background-color: rgba(41, 40, 40,1);
     padding: 50px;
 }
 
@@ -180,6 +180,16 @@ a:hover, a:focus{
     background: url("../img/auth/logoCUBE.png") 50% 50% no-repeat;
     background-size: 80px;
     float: left;
+    z-index:9;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    transform: translateX(50px);
 }
 .textLogo{
     overflow: hidden;
@@ -196,11 +206,11 @@ a:hover, a:focus{
     top:0;
     left:0;
 
-    -webkit-transition: 0.5s ease;
-    -moz-transition: 0.5s ease ;
-    -ms-transition: 0.5s ease ;
-    -o-transition: 0.5s ease ;
-    transition: 0.5s ease ;
+    -webkit-transition: 0.75s ease;
+    -moz-transition: 0.75s ease ;
+    -ms-transition: 0.75s ease ;
+    -o-transition: 0.75s ease ;
+    transition: 0.75s ease ;
 
     -webkit-transform: translateX(-200px);
     -moz-transform: translateX(-200px);
