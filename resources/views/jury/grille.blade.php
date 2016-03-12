@@ -5,12 +5,11 @@
 @stop
 
 @section('contenu')
-
+    @include('jury.nav')
     <div id="containerTotal">
-
         <div class="fullcontent">
             <section class="sct-grd bg-marg-bt">
-
+                {{ Auth::user()->nomEnseignant.' '.Auth::user()->prenomEnseignant }}
                 <div class="title-top">
 
                     <div class="title-bg-ctnt">
@@ -114,12 +113,18 @@
                             <tr class="tbl-head">
                                 <th>Nom critère</th>
                                 <th>Votre note</th>
-                                <th>Note maximal</th>
+                                <th>Note maximale</th>
                             </tr>
                             @foreach($criteres as $critere)
                                 <tr>
                                     <td>{{ $critere->libelleCritere }}</td>
-                                    <td><input type="number" value="0" min="0" max="<?= $critere->poids; ?>" name="critere<?= $critere->critere_id; ?>" class="crd nbr-crd note" id="input-critere<?= $critere->critere_id; ?>" onclick="calculNoteFunction();"></td>
+
+                                    <td>
+                                        <div class="range-ctnt">
+                                            <input type="range" class="note" name="critere<?= $critere->critere_id; ?>" id="input-critere<?= $critere->critere_id; ?>" min="0" max="<?= $critere->poids; ?>" value="0" step="1" onmousemove="showValue()" onchange="calculNoteFunction();"/>
+                                            <div class="valeurNomber crd">0</div>
+                                        </div>
+                                    </td>
                                     <td><input type="number" value="<?= $critere->poids; ?>" class="crd nbr-crd note-mx" readonly></td>
                                 </tr>
                             @endforeach
@@ -134,7 +139,7 @@
                     </div>
 
                     <div class="title-bg-ctnt mdl-marg-bt">
-                        <h1 class="title-mid">Question(s) récurrentes</h1>
+                        <h1 class="title-mid">Question(s) récurrente(s)</h1>
                     </div>
 
                     <div class="wdt-max-nln-blc bg-marg-bt">
@@ -153,7 +158,7 @@
                     </div>
 
                     <div class="title-bg-ctnt mdl-marg-bt">
-                        <h1 class="title-mid">Remarques / Note</h1>
+                        <h1 class="title-mid">Remarque(s) / Note</h1>
                     </div>
 
                     <div class="wdt-max-nln-blc mdl-marg-bt">
@@ -188,6 +193,13 @@
                     </div>
 
                 </form>
+
+                <div class="defileParent">
+                    <span class="defile" data-text="Cédric DEGRELLE | Gaëtan CRETIN | Valentin BONNAL | Thomas LEHMANN | Thibaud PERRIN |">
+                            Cédric DEGRELLE | Gaëtan CRETIN | Valentin BONNAL | Thomas LEHMANN | Thibaud PERRIN |
+                    </span>
+                </div>
+
             </section>
         </div>
 
@@ -207,6 +219,7 @@
             });
 
             totalNoteMax = 0;
+
             $("input.note").keyup(function () {
                 totalNoteMax =0;
                 $('input.note').each(function () {
@@ -215,7 +228,14 @@
                     $('.resultatNote').val(totalNoteMax);
                 });
             }).keyup();
+
         }
+        function showValue(){
+            $("input.note").keyup(function () {
+                $(this).next('div').text($(this).val());
+            }).keyup();
+        }
+
     </script>
     <!--script calcul de la note (obligatoirement dans le html)-->
 
