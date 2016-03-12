@@ -32,7 +32,6 @@
 </div>
 
 <!-- Js -->
-{!! Html::script('/assets/js/menu.js') !!}
 {!! Html::script('/assets/js/auth.js') !!}
 
 </body>
