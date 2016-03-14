@@ -27,8 +27,11 @@ $( document ).ready(function() {
     $(window).load(function () {
         changeBackgroundBlur();
         setTimeout(function () {
-            $('.textLogoContainer').css('transform','translateX(0px)')
-        },150);
+            $('.textLogoContainer').css('transform','translateX(0px)');
+            setTimeout(function () {
+                $('.imgLogo').css('transform','translateX(0px)');
+            },250);
+        },500);
     });
 
 });
