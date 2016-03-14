@@ -16,21 +16,6 @@ Route::get('/', function () {
 });
 
 /*
- * Partie notation
- */
-//Page grille jury
-Route::get('grille/{id}/{idE}', 'GroupeProjetController@show');
-//route lorsque l'utilisateur valide le formulaire de la page grille jury
-Route::post('grille/{id}/{idE}', 'GroupeProjetController@post');
-
-
-//Page de visualisation après validation du maître de la page grille jury
-Route::get('recapitulation/{id}', 'RecapitulationController@show');
-//route lorsque l'utilisateur valide le formulaire de la page recapitulation
-Route::post('recapitulation/{id}', 'RecapitulationController@post');
-
-
-/*
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
@@ -41,12 +26,23 @@ Route::post('recapitulation/{id}', 'RecapitulationController@post');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/planning', 'PlanningController@index');
+
+	//Page grille jury
+    Route::get('grille/{id}/{idE}', 'GroupeProjetController@show');
+	//route lorsque l'utilisateur valide le formulaire de la page grille jury
+	Route::post('grille/{id}/{idE}', 'GroupeProjetController@post');
+
+	//Page de visualisation après validation du maître de la page grille jury
+	Route::get('recapitulation/{id}', 'RecapitulationController@show');
+	//route lorsque l'utilisateur valide le formulaire de la page recapitulation
+	Route::post('recapitulation/{id}', 'RecapitulationController@post');
+
+	//Page de planning
+	Route::get('planning/', 'PlanningController@ShowSoutenance');
+	//Données du planning
+	Route::get('planning/api', 'PlanningController@api');
 });

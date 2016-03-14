@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call('CritereTypeEvaluationTableSeeder');
         $this->call('EvaluationTableSeeder');
         $this->call('EnseignantEvaluationRoleTableSeeder');
-        $this->call('CritereEnseignantEvaluationTableSeeder');
 
         Model::reguard();
     }

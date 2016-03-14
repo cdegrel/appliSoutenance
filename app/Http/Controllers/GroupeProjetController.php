@@ -15,6 +15,11 @@ use App\Http\Requests;
 
 class GroupeProjetController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +68,7 @@ class GroupeProjetController extends Controller
             if ($enseignant->role_id==1) {
                 return redirect()->action('RecapitulationController@show',$id);
             }
-            return redirect()->action('GroupeProjetController@index');
+            return view('jury.voter');
         }
         
         $idEvaluation = Evaluation::join('type_evaluations','type_evaluations.id','=','evaluations.type_evaluation_id')
@@ -143,7 +148,7 @@ class GroupeProjetController extends Controller
         if ($enseignant->role_id==1) {
             return redirect()->action('RecapitulationController@show',$id);
         }else{
-            return redirect()->action('GroupeProjetController@index');
+            return view('jury.voter');
         }
 
         //return redirect()->action('RecapitulationController@show',$id);

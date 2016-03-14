@@ -16,6 +16,11 @@ use App\Http\Requests;
 
 class RecapitulationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -55,7 +60,6 @@ class RecapitulationController extends Controller
      */
     public function show($id)
     {
-        //test pour voir si l'esclave essaye de se co sur cette page et si c'est le cas le renvoyer
         //test pour voir si le maître essaye de se co sur cette page sans avoir voté et si c'est la cas le renvoyer
         
         $idEvaluation = Evaluation::join('type_evaluations','type_evaluations.id','=','evaluations.type_evaluation_id')
@@ -120,7 +124,7 @@ class RecapitulationController extends Controller
                         'remarqueGroupe'=>$request->input('remarque')
                         ]);
 
-        return redirect()->action('GroupeProjetController@index');
+        return view('jury.voter');;
     }
 
     /**
