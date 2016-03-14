@@ -1,0 +1,9 @@
+- Rajouter l'id dans les sessions
+- CSS de planning, de la page voter
+- Dans la page voter après 5 secondes redirection vers planning
+- Utiliser l'ID de la session dans grille et recapitulation
+- chronomètre
+- Page welcome CSS (page de bienvenue)
+- Régler les remarques groupes
+- Vérification de la validation par checkbox + ajout date et heure
+- Menu (retour planning, deconnection)

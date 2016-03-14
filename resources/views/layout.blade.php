@@ -13,18 +13,13 @@
     {!! Html::style('/assets/css/menu.css') !!}
     {!! Html::style('/assets/css/auth.css') !!}
     {!! Html::style('/assets/css/style.css') !!}
+    @yield('css')
 
     <!-- Jquery -->
     {!! Html::script('/assets/js/jquery.js') !!}
 </head>
 
 <body>
-
-<ul id="navigation">
-    <li class="accueil"><a href="" title="Accueil"></a></li>
-    <li class="planning"><a href="" title="Planning"></a></li>
-    <li class="options"><a href="" title="Options"></a></li>
-</ul>
 
 <!-- Contenu -->
 <div class="container">
@@ -34,6 +29,6 @@
 <!-- Js -->
 {!! Html::script('/assets/js/menu.js') !!}
 {!! Html::script('/assets/js/auth.js') !!}
-
+@yield('js')
 </body>
 </html>
