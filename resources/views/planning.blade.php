@@ -5,20 +5,31 @@
 @stop
 
 @section('css')
-	<link href="{{ url('assets/fullcalendar_asset/css') }}/style.css" rel="stylesheet">
+	{{--<link href="{{ url('assets/fullcalendar_asset/css') }}/style.css" rel="stylesheet">--}}
 	<link href="{{ url('assets/fullcalendar_asset/css') }}/tooltip_qtip.css" rel="stylesheet">
 	<link href="{{ url('assets/fullcalendar_asset/fullcalendar') }}/fullcalendar.min.css" rel="stylesheet">
 @endsection
 
 @section('contenu')
 
-	<div class="row">
-		<div class="col-lg-12">
+	@include('jury.nav')
+
+	<div id="containerTotal">
+		<div class="fullcontent">
+
+			<div class="nav-plannig crd">
+				<div class="usr-nm"><h3 class="blc-title-lttl">{{ Auth::user()->nomEnseignant.' '.Auth::user()->prenomEnseignant }}</h3></div>
+				<div class="nav-right">
+					<div class="logout-nav">
+						<p><a class="blc-title-lttl" href="{{ url('logout') }}">Logout</a><span></span></p>
+					</div>
+				</div>
+			</div>
+
 			<div id='calendar'></div>
 		</div>
 	</div>
-	
-	<li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+
 
 @endsection
 
