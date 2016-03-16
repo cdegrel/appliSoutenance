@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
         $this->call('EtudiantTableSeeder');
         $this->call('CriteresTableSeeder');
         $this->call('CritereTypeEvaluationTableSeeder');
+        $this->call('DateSeeder');
+        $this->call('HeureDebutSeeder');
         $this->call('EvaluationTableSeeder');
+        $this->call('DateEvaluationHeureDebutSeeder');
         $this->call('EnseignantEvaluationRoleTableSeeder');
 
         Model::reguard();
