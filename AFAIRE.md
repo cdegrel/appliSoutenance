@@ -1,8 +1,12 @@
-- CSS de planning, de la page voter
-- Dans la page voter après 5 secondes redirection vers planning
-- Utiliser l'ID de la session dans grille et recapitulation
+- CSS (c'est la même pour ces 3 pages) : - Page "à voté"
+                                         - Page "vous avez déjà voté"
+                                         - Page "vous n'avez pas accés à cette soutenance"
+- Redirection vers planning après 5 secondes : - Page "à voté"
+                                               - Page "vous avez déjà voté"
+                                               - Page "vous n'avez pas accés à cette soutenance"
+- Utiliser l'ID de la session dans grille et recapitulation (Gaëtan)
+- Régler les remarques groupes (Gaëtan)
 - chronomètre
-- Page welcome CSS (page de bienvenue)
-- Régler les remarques groupes
+- Page welcome CSS (page de bienvenue) prendre le css de la page de login est changer les champs imput par les liens login...
 - Vérification de la validation par checkbox + ajout date et heure
 - Menu (retour planning, deconnection)
