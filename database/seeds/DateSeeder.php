@@ -14,7 +14,16 @@ class DateSeeder extends Seeder
 		DB::table('dates')->delete();
 
 		DB::table('dates')->insert([
-			'id' => '2016-01-01'
+			'id' => '2016-03-21'
 		]);
+        DB::table('dates')->insert([
+            'id' => '2016-03-22'
+        ]);
+        DB::table('dates')->insert([
+            'id' => '2016-03-23'
+        ]);
+        DB::table('dates')->insert([
+            'id' => '2016-03-24'
+        ]);
     }
 }
