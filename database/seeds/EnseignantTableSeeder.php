@@ -80,8 +80,8 @@ class EnseignantTableSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ]);
         DB::table('enseignants')->insert([
-            'nomEnseignant' => 'H�am',
-            'prenomEnseignant' => 'Piere-Cyril',
+            'nomEnseignant' => 'Héam',
+            'prenomEnseignant' => 'Pierre-Cyril',
             'photoEnseignant' => 'pierrecyrilHeam.png',
             'admin' => false,
             'login' => 'pcheam',
@@ -99,7 +99,7 @@ class EnseignantTableSeeder extends Seeder
         ]);
         DB::table('enseignants')->insert([
             'nomEnseignant' => 'Couturier',
-            'prenomEnseignant' => 'Raphael',
+            'prenomEnseignant' => 'Raphae',
             'photoEnseignant' => 'raphaelCouturier.png',
             'admin' => false,
             'login' => 'rcouturi',

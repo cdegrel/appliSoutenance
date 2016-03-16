@@ -4,8 +4,6 @@
 - Redirection vers planning après 5 secondes : - Page "à voté"
                                                - Page "vous avez déjà voté"
                                                - Page "vous n'avez pas accés à cette soutenance"
-- Utiliser l'ID de la session dans grille et recapitulation (Gaëtan)
-- Régler les remarques groupes (Gaëtan)
 - chronomètre
 - Page welcome CSS (page de bienvenue) prendre le css de la page de login est changer les champs imput par les liens login...
 - Vérification de la validation par checkbox + ajout date et heure

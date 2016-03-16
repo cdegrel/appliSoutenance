@@ -19,7 +19,7 @@ class TypeEvaluationTableSeeder extends Seeder
         ]);
         DB::table('type_evaluations')->insert([
             'libelleTypeEvaluation' => 'Projet tuteuré',
-            'dureeTypeEvaluation' => '00:30:00'
+            'dureeTypeEvaluation' => '01:00:00'
         ]);
         DB::table('type_evaluations')->insert([
             'libelleTypeEvaluation' => 'PPP',
@@ -27,7 +27,7 @@ class TypeEvaluationTableSeeder extends Seeder
         ]);
         DB::table('type_evaluations')->insert([
             'libelleTypeEvaluation' => 'Oraux',
-            'dureeTypeEvaluation' => '00:15:00'
+            'dureeTypeEvaluation' => '00:30:00'
         ]);
     }
 }
