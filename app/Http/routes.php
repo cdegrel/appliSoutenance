@@ -32,9 +32,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/planning', 'PlanningController@index');
 
 	//Page grille jury
-    Route::get('grille/{id}/{idE}', 'GroupeProjetController@show');
+    Route::get('grille/{id}', 'GroupeProjetController@show');
 	//route lorsque l'utilisateur valide le formulaire de la page grille jury
-	Route::post('grille/{id}/{idE}', 'GroupeProjetController@post');
+	Route::post('grille/{id}', 'GroupeProjetController@post');
 
 	//Page de visualisation après validation du maître de la page grille jury
 	Route::get('recapitulation/{id}', 'RecapitulationController@show');

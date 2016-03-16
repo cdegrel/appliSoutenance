@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\GroupeProjet;
 use App\Models\Evaluation;
 use App\Models\EnseignantEvaluationRole;
@@ -57,8 +58,22 @@ class GroupeProjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id,$idE)
+    public function show($id)
     {
+        $idE = Auth::user()->id;
+        //test de si ils ont le droit de venir ou pas
+        $enseignantsPossible = EnseignantEvaluationRole::where('evaluation_id', $id)
+                                                        ->get();
+        $droitAcces = false; //par defaut l'utilisateur n'a pas le droi de venir. on le met à vrai si il fait party des jurys
+        foreach ($enseignantsPossible as $key => $enseignantPossible) {
+            if ($idE==$enseignantPossible->enseignant_id) {
+                $droitAcces = true;
+            }
+        }
+        if ($droitAcces==false) {
+            return view('jury.mauvaiseSoutenance');
+        }
+
         //a modifier lors des sessions
         $enseignant = EnseignantEvaluationRole::where('enseignant_id', $idE)
                                                 ->where('evaluation_id', $id)
@@ -68,7 +83,7 @@ class GroupeProjetController extends Controller
             if ($enseignant->role_id==1) {
                 return redirect()->action('RecapitulationController@show',$id);
             }
-            return view('jury.voter');
+            return view('jury.dejaVote');
         }
         
         $idEvaluation = Evaluation::join('type_evaluations','type_evaluations.id','=','evaluations.type_evaluation_id')
@@ -91,8 +106,9 @@ class GroupeProjetController extends Controller
         return view('jury.grille', compact('id', 'idE', 'projets', 'etudiants', 'idEvaluation', 'roles', 'criteres'));
     }
 
-    public function post($id, $idE, Request $request)
+    public function post($id, Request $request)
     {
+        $idE = Auth::user()->id;
         //a modifier lors de l'utilisation des sessions
         $enseignant = EnseignantEvaluationRole::join('enseignants','enseignants.id','=','enseignant_evaluation_role.enseignant_id')
                                                 ->where('enseignant_id', $idE)
@@ -105,7 +121,7 @@ class GroupeProjetController extends Controller
                                                    ->where('vote',0)
                                                    ->count();
             if ($esclaves!=0) {
-                return redirect()->action('GroupeProjetController@show',[$id, $idE]);
+                return redirect()->action('GroupeProjetController@show',$id);
             }
         }
 
@@ -136,7 +152,7 @@ class GroupeProjetController extends Controller
         
         Evaluation::where('evaluations.id',$id)
                     ->update(['noteGroupe'=>$total,
-                        'remarqueGroupe'=>$idEvaluation->remarqueGroupe.' | '.$enseignant->nomEnseignant.' : '.$request->input('remarque')
+                        'remarqueGroupe'=>$enseignant->nomEnseignant.' : '.$request->input('remarque').' | '.$idEvaluation->remarqueGroupe
                         ]);
 
         //mettre le jury en à voté

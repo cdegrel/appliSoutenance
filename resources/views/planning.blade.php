@@ -5,31 +5,20 @@
 @stop
 
 @section('css')
-	{{--<link href="{{ url('assets/fullcalendar_asset/css') }}/style.css" rel="stylesheet">--}}
+	<link href="{{ url('assets/fullcalendar_asset/css') }}/style.css" rel="stylesheet">
 	<link href="{{ url('assets/fullcalendar_asset/css') }}/tooltip_qtip.css" rel="stylesheet">
 	<link href="{{ url('assets/fullcalendar_asset/fullcalendar') }}/fullcalendar.min.css" rel="stylesheet">
 @endsection
 
 @section('contenu')
 
-	@include('jury.nav')
-
-	<div id="containerTotal">
-		<div class="fullcontent">
-
-			<div class="nav-plannig crd">
-				<div class="usr-nm"><h3 class="blc-title-lttl">{{ Auth::user()->nomEnseignant.' '.Auth::user()->prenomEnseignant }}</h3></div>
-				<div class="nav-right">
-					<div class="logout-nav">
-						<p><a class="blc-title-lttl" href="{{ url('logout') }}">Logout</a><span></span></p>
-					</div>
-				</div>
-			</div>
-
+	<div class="row">
+		<div class="col-lg-12">
 			<div id='calendar'></div>
 		</div>
 	</div>
-
+	
+	<li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
 
 @endsection
 
@@ -92,7 +81,7 @@
 							'<b>Étudiant(es) : </b>' + data.etudiant + '</p><br />' +
 							'<p><b>Début : </b> ' + data.tooltipDebut + '<br />' +
 							'<b>Fin : </b> ' + data.tooltipFin + '</p><br />' +
-							'<b><a href="grille/'+data.id+'/3">Lien possible vers grille de notation ou autre</a>';
+							'<b><a href="grille/'+data.id+'">Lien possible vers grille de notation ou autre</a>';
 
 
 					tooltip.set({

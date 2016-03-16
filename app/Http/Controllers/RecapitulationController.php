@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\GroupeProjet;
 use App\Models\Evaluation;
 use App\Models\EnseignantEvaluationRole;
@@ -62,6 +63,20 @@ class RecapitulationController extends Controller
     {
         //test pour voir si le maître essaye de se co sur cette page sans avoir voté et si c'est la cas le renvoyer
         
+        $idE = Auth::user()->id;
+        //test de si ils ont le droit de venir ou pas
+        $enseignantPossible = EnseignantEvaluationRole::where('evaluation_id', $id)
+                                                        ->where('role_id',1)
+                                                        ->first();
+        $droitAcces = false; //par defaut l'utilisateur n'a pas le droi de venir. on le met à vrai si il fait party des jurys
+        if ($idE!=$enseignantPossible->enseignant_id) {
+            return view('jury.mauvaiseSoutenance');
+        }
+
+        if ($enseignantPossible->vote!=1) {
+            return view('jury.pasVote');
+        }
+
         $idEvaluation = Evaluation::join('type_evaluations','type_evaluations.id','=','evaluations.type_evaluation_id')
                                     ->where('evaluations.id',$id)
                                     ->first();

@@ -5,7 +5,7 @@
 @stop
 
 @section('contenu')
-    @include('jury.nav')
+
     <div id="containerTotal">
         <div class="fullcontent">
             <section class="sct-grd bg-marg-bt">

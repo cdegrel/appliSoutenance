@@ -5,10 +5,11 @@
 @stop
 
 @section('contenu')
-    @include('jury.nav')
+
     <div id="containerTotal">
         <div class="fullcontent">
             <section class="sct-grd bg-marg-bt">
+                {{ Auth::user()->nomEnseignant.' '.Auth::user()->prenomEnseignant }}
                 <div class="title-top">
 
                     <div class="title-bg-ctnt">
@@ -101,7 +102,7 @@
                     <h1 class="title-mid">Critères de notation</h1>
                 </div>
 
-                <form method="POST" action="{!! url('grille/'.$id.'/'.$idE) !!}" accept-charset="UTF-8" class="mdl-marg-bt">
+                <form method="POST" action="{!! url('grille/'.$id) !!}" accept-charset="UTF-8" class="mdl-marg-bt">
                     {!! csrf_field() !!}
 
                     <div class="crd tbl-crd bg-marg-bt">
@@ -165,7 +166,7 @@
                             <div class="crd crd-Q title-crd-wht ">
                                 <p>Remaque(s)</p>
                             </div>
-                            <textarea name="Question1" class="crd crd-txtarea" placeholder="Remarque(s) ..."></textarea>
+                            <textarea name="remarque" class="crd crd-txtarea" placeholder="Remarque(s) ..."></textarea>
                         </div>
                     </div>
 
