@@ -2,5 +2,4 @@
                                                - Page "vous avez déjà voté"
                                                - Page "vous n'avez pas accés à cette soutenance"
 - chronomètre
-- Page welcome CSS (page de bienvenue) prendre le css de la page de login est changer les champs imput par les liens login...
 - Vérification de la validation par checkbox + ajout date et heure
