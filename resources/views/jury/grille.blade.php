@@ -7,9 +7,7 @@
 @section('contenu')
     @include('jury.nav')
 
-	    {!! Html::script('/assets/js/date_heure.js') !!}
-
-
+	{!! Html::script('/assets/js/date_heure.js') !!}
     <div id="containerTotal">
         <div class="fullcontent">
             <section class="sct-grd bg-marg-bt">
@@ -193,7 +191,7 @@
                     </div>
 
                     <div class="wdt-max-nln-blc">
-                        <input type="submit" value="Valider" class="crd title-crd-wht">
+                        <input type="submit" value="Valider" class="crd title-crd-wht" id="valider">
                     </div>
 
                 </form>
@@ -213,7 +211,16 @@
     <!--script calcul de la note (obligatoirement dans le html)-->
     <script>
         $(document).ready(function(){
+            $('#valider').prop('disabled', true);
             calculNoteFunction();
+        });
+
+        $('#approv-chck').click(function(){
+            if($(this).is(':checked')){
+                $('#valider').prop('disabled', false);
+            }else{
+                $('#valider').prop('disabled', true);
+            }
         });
 
         function calculNoteFunction() {

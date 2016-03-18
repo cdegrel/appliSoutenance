@@ -6,6 +6,8 @@
 
 @section('contenu')
     @include('jury.nav')
+
+    {!! Html::script('/assets/js/date_heure.js') !!}
     <div id="containerTotal">
         <div class="fullcontent">
             <section class="sct-grd bg-marg-bt">
@@ -171,8 +173,14 @@
 
                     </div>
 
+                    <div class="approv mdl-marg-bt">
+                        <input type="checkbox" id="approv-chck">
+                        <label for="approv-chck">Lu et approuvé le <span id="dated"></span></label>
+                        <script type="text/javascript">window.onload = date_heure('dated');</script>
+                    </div>
+
                     <div class="wdt-max-nln-blc">
-                        <input type="submit" value="Valider" class="crd title-crd-wht">
+                        <input type="submit" value="Valider" class="crd title-crd-wht" id="valider">
                     </div>
 
                 </form>
@@ -190,12 +198,21 @@
 
     <script>
         $(document).ready(function(){
+            $('#valider').prop('disabled', true);
             var i = 0;
             $('.tbl1-crd table tbody tr:nth-child(2) td').each(function () {
                 i++;
             });
             $(".tbl1-crd table .tbl-head th").css("width", (100/i)+"%");
 
+        });
+
+        $('#approv-chck').click(function(){
+            if($(this).is(':checked')){
+                $('#valider').prop('disabled', false);
+            }else{
+                $('#valider').prop('disabled', true);
+            }
         });
 
     </script>
