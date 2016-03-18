@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Confirmation vote</title>
+    <meta http-equiv="refresh" content="3;url={!! url('/') !!}">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -43,8 +44,18 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Vote pris en compte !</div>
+        <div class="title">Vote pris en compte !
+        <p>Retour au planning dans <span id="timer">3</span> sec</p>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var tmp = 3;
+    setInterval(function(){
+        tmp--;
+        document.getElementById('timer').innerHTML = tmp;
+    },1100);
+</script>
 </body>
 </html>
