@@ -1,2 +1,1 @@
 - chronomètre
-- Vérification de la validation par checkbox
