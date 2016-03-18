@@ -24,6 +24,10 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    public function loginUsername()
+    {
+        return property_exists($this, 'username') ? $this->username : 'login';
+    }
     /**
      * Where to redirect users after login / registration.
      *
