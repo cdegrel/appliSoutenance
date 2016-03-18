@@ -56,8 +56,7 @@ class PlanningController extends Controller {
 			$event->tuteur   = $event->prenomEnseignant . " " . $event->nomEnseignant;
 
 			$event->id    = $event->evaluation_id;
-			$event->title = /*$event->libelleTypeEvaluation . "\n" . */
-				$event->libelleSujet;
+			$event->title = $event->libelleSujet. ":::".$event->prenomEnseignant . " " . $event->nomEnseignant ;
 			/*$event->url   = "LienVersDescriptifOuGrilleOuAutre";*/        // Infobulle au clic en JS, donc ne pas activer cette option
 			/*$event->color = "#FF0000";*/            // Il faudrait ajouter une couleur dans la BDD pour chaque type d'évaluation (table : type_evaluations)
 

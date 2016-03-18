@@ -404,6 +404,7 @@ thead.fc-head{
     border:1px solid #3a87ad;
     background-color:#3a87ad;
     font-weight:400
+    cursor: pointer;
 }
 .fc-event,.fc-event:hover,.ui-widget .fc-event
 {
@@ -429,7 +430,8 @@ thead.fc-head{
 {
     position:relative;
     z-index:2;
-    text-align:left
+    text-align:left;
+    cursor: pointer;
 }
 .fc-event .fc-resizer
 {

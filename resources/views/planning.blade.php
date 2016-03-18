@@ -18,7 +18,7 @@
 		<div class="fullcontent">
 
 			<div class="nav-plannig crd">
-				<div class="usr-nm"><h3 class="blc-title-lttl">{{ Auth::user()->nomEnseignant.' '.Auth::user()->prenomEnseignant }}</h3></div>
+				<div class="usr-nm"><h3 id="NameTeacher" class="blc-title-lttl">{{ Auth::user()->prenomEnseignant.' '.Auth::user()->nomEnseignant }}</h3></div>
 				<div class="nav-right">
 					<div class="logout-nav">
 						<p><a class="blc-title-lttl" href="{{ url('logout') }}">Logout</a><span></span></p>
@@ -40,6 +40,7 @@
 	<script src="{{ url('assets/fullcalendar_asset/js') }}/jquery_qtip.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+
 			// Ajout d'une info bulle pour faciliter la lecture parfois chaotique
 			var tooltip = $('<div/>').qtip({
 				id: 'fullcalendar',
@@ -107,6 +108,19 @@
 					tooltip.hide()
 				}
 			});
+			setTimeout(function () {
+				var nameTeach;
+				$('.fc-title').each(function () {
+					nameTeach = $(this).text().split(':::');
+					console.log(nameTeach[1]+" "+$('#NameTeacher').text());
+					if(nameTeach[1]==$('#NameTeacher').text()){
+						$(this).parent().css('background-color','red');
+					}
+					$(this).text(nameTeach[0]);
+				});
+			},1000);
+
+
 		});
 	</script>
 @endsection
