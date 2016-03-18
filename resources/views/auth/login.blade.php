@@ -40,7 +40,7 @@
                             <fieldset>
                                 <div class="inputLog {{ $errors->has('login') ? ' has-error' : '' }}">
                                     <div class="imginput imgUser"></div>
-                                    <input type="login" placeholder="login" name="login" value="{{ old('login') }}">
+                                    <input type="text" placeholder="login" name="login" value="{{ old('login') }}">
 
                                     @if ($errors->has('login'))
                                         <span class="help-block">
