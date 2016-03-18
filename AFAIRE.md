@@ -1,5 +1,2 @@
-- Redirection vers planning après 5 secondes : - Page "à voté"
-                                               - Page "vous avez déjà voté"
-                                               - Page "vous n'avez pas accés à cette soutenance"
 - chronomètre
 - Vérification de la validation par checkbox
