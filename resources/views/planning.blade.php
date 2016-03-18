@@ -108,19 +108,30 @@
 					tooltip.hide()
 				}
 			});
+
 			setTimeout(function () {
 				var nameTeach;
 				$('.fc-title').each(function () {
 					nameTeach = $(this).text().split(':::');
-					console.log(nameTeach[1]+" "+$('#NameTeacher').text());
 					if(nameTeach[1]==$('#NameTeacher').text()){
 						$(this).parent().css('background-color','red');
 					}
 					$(this).text(nameTeach[0]);
 				});
-			},1000);
-
-
+			},250);
+			$('div').on('click', '.fc-more',function () {
+				console.log('test');
+				setTimeout(function () {
+					$('.fc-title').each(function () {
+						nameTeach = $(this).text().split(':::');
+						console.log(nameTeach[1]+" "+$('#NameTeacher').text());
+						if(nameTeach[1]==$('#NameTeacher').text()){
+							$(this).parent().css('background-color','red');
+						}
+						$(this).text(nameTeach[0]);
+					});
+				},50);
+			});
 		});
 	</script>
 @endsection
