@@ -2,4 +2,4 @@
                                                - Page "vous avez déjà voté"
                                                - Page "vous n'avez pas accés à cette soutenance"
 - chronomètre
-- Vérification de la validation par checkbox + ajout date et heure
+- Vérification de la validation par checkbox
