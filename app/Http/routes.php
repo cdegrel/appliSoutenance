@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +27,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/planning', 'PlanningController@index');
+    Route::get('/', 'PlanningController@index');
 
 	//Page grille jury
     Route::get('grille/{id}', 'GroupeProjetController@show');

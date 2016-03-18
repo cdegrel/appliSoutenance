@@ -6,10 +6,13 @@
 
 @section('contenu')
     @include('jury.nav')
+
+	    {!! Html::script('/assets/js/date_heure.js') !!}
+
+
     <div id="containerTotal">
         <div class="fullcontent">
             <section class="sct-grd bg-marg-bt">
-                {{ Auth::user()->nomEnseignant.' '.Auth::user()->prenomEnseignant }}
                 <div class="title-top">
 
                     <div class="title-bg-ctnt">
@@ -185,7 +188,8 @@
 
                     <div class="approv mdl-marg-bt">
                         <input type="checkbox" id="approv-chck">
-                        <label for="approv-chck">Lu et approuvé le .... à ...</label>
+                        <label for="approv-chck">Lu et approuvé le <span id="dated"></span></label>
+                        <script type="text/javascript">window.onload = date_heure('dated');</script>
                     </div>
 
                     <div class="wdt-max-nln-blc">
@@ -204,6 +208,7 @@
         </div>
 
     </div>
+
 
     <!--script calcul de la note (obligatoirement dans le html)-->
     <script>

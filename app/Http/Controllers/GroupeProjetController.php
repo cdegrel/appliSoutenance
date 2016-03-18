@@ -71,7 +71,7 @@ class GroupeProjetController extends Controller
             }
         }
         if ($droitAcces==false) {
-            return view('jury.mauvaiseSoutenance');
+            return view('errors.mauvaiseSoutenance');
         }
 
         //a modifier lors des sessions
@@ -83,7 +83,7 @@ class GroupeProjetController extends Controller
             if ($enseignant->role_id==1) {
                 return redirect()->action('RecapitulationController@show',$id);
             }
-            return view('jury.dejaVote');
+            return view('errors.dejaVote');
         }
         
         $idEvaluation = Evaluation::join('type_evaluations','type_evaluations.id','=','evaluations.type_evaluation_id')

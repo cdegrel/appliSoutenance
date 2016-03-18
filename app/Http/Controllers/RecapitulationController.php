@@ -70,11 +70,11 @@ class RecapitulationController extends Controller
                                                         ->first();
         $droitAcces = false; //par defaut l'utilisateur n'a pas le droi de venir. on le met à vrai si il fait party des jurys
         if ($idE!=$enseignantPossible->enseignant_id) {
-            return view('jury.mauvaiseSoutenance');
+            return view('errors.mauvaiseSoutenance');
         }
 
         if ($enseignantPossible->vote!=1) {
-            return view('jury.pasVote');
+            return view('errors.pasVote');
         }
 
         $idEvaluation = Evaluation::join('type_evaluations','type_evaluations.id','=','evaluations.type_evaluation_id')

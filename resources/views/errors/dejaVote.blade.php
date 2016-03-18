@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirmation vote</title>
+    <title>Page inaccessible</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -35,7 +35,7 @@
         .title {
             font-size: 72px;
             margin-bottom: 40px;
-            color: #58D16C;
+            color: #C5383E;
             font-weight: 600;
         }
     </style>
@@ -43,7 +43,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Vote pris en compte !</div>
+        <div class="title">Vous avez déjà voté</div>
     </div>
 </div>
 </body>
