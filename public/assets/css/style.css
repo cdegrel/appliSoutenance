@@ -260,6 +260,10 @@ html, body{
 .mdl-ft{
     font-size: 0.8em;
 }
+.bg-ft{
+    font-size: 1.2em;
+    font-family: "SourceSansPro-Light", roboto, sans-serif;
+}
 .auto-ctr{
     width: auto;
     height: auto;
@@ -323,7 +327,7 @@ input.nbr-crd{
     padding-left: 15px;
 
 }
-.nbr-crd:focus, .crd-txtarea:focus,.crd-txtarea-tbl:focus, input[type=checkbox]:focus, input[type=submit]:focus{
+.nbr-crd:focus, .crd-txtarea:focus,.crd-txtarea-tbl:focus, input[type=checkbox]:focus, input[type=submit]:focus, input[type=button]:focus{
     outline: -webkit-focus-ring-color auto 0px;
 }
 .crd-txtarea{
@@ -393,7 +397,7 @@ input[type=submit]{
     transition: 0.25s ease-in-out;
 
 }
-input[type=submit]:hover{
+input[type=submit]:hover, input[type=button]:hover{
     -webkit-transition: 0.25s;
     -moz-transition: 0.25s;
     -ms-transition: 0.25s;
