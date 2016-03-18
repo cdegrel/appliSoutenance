@@ -7,9 +7,22 @@
 @section('contenu')
     @include('jury.nav')
 
-	{!! Html::script('/assets/js/date_heure.js') !!}
+    {!! Html::script('/assets/js/date_heure.js') !!}
+    {!! Html::script('/assets/js/chrono.js') !!}
+    {!! Html::style('/assets/css/chrono.css') !!}
+
+
     <div id="containerTotal">
         <div class="fullcontent">
+
+            <div class="chrono">
+                <span id="chronotime" class="crd wdt-max bg-ft">{{ $idEvaluation->dureeTypeEvaluation }}</span>
+                <form name="chronoForm" id="fond">
+                    <input type="button" class= "start crd" name="startstop" value="START" onClick="chronoStart()" />
+                    <input type="button" class="reset crd" name="reset" value="RESET" onClick="chronoReset()" />
+                </form>
+            </div>
+
             <section class="sct-grd bg-marg-bt">
                 <div class="title-top">
 

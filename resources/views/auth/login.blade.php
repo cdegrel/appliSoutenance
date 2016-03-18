@@ -38,13 +38,13 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('login') }}">
                             {!! csrf_field() !!}
                             <fieldset>
-                                <div class="inputLog {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="inputLog {{ $errors->has('login') ? ' has-error' : '' }}">
                                     <div class="imginput imgUser"></div>
-                                    <input type="email" placeholder="email" name="email" value="{{ old('email') }}">
+                                    <input type="login" placeholder="login" name="login" value="{{ old('login') }}">
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('login'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('login') }}</strong>
                                     </span>
                                     @endif
                                 </div>
