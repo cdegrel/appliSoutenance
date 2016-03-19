@@ -36,20 +36,21 @@ La documentation sera bientôt disponible en ligne et en version .pdf, une aide 
 
 ---
 ###Changelog :
-<ul>
+
 <li>v1.3 (Mars 18, 2016)</li>
 <ul>
 <li>Affichage des soutenances via un planning</li>
 <li>Gestion des erreurs et redirections</li>
 <li>Vérification via checkbox pour la grille d'évaluation + date et heure</li>
 </ul>
-<ul>
+
 <li>Update Laravel 5.2</li>
+<ul>
 <li>Nouveau visuel pour la grille d'évaluation ainsi que la grille de récapitulation;</li>
 <li>Meilleur visualisation de l'enseignant "maître" de la soutenance;</li>
 <li>Actualisation de la note finale sans rechargement de la page</li>
 <li>Correctif sur la base de données </li>
 </ul>
-</ul>
+
 
 
