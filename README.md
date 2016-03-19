@@ -44,7 +44,7 @@ La documentation sera bientôt disponible en ligne et en version .pdf, une aide 
 <li>Vérification via checkbox pour la grille d'évaluation + date et heure.</li>
 </ul>
 
-<li>v0.2 (Février 11, 2016)/li>
+<li>v0.2 (Février 11, 2016)</li>
 <ul>
 <li>Mise à jour Laravel 5.2;</li>
 <li>Nouveau visuel pour la grille d'évaluation ainsi que la grille de récapitulation;</li>
