@@ -15,16 +15,18 @@ Développé avec le framework <b>Laravel 5.2</b> dans le cadre d'un projet tuteu
 </ul>
 ---
 ### Fonctionnalités :
-<li>Authentification jury et admin (<span style="color:orange">en cours</span>)</li>
-<li>Planning des soutenances (<span style="color:orange">en cours</span>)</li> 
-<li>Grille de notation (<span style="color:green">ok</span>)</li>
-<li>Grille de récapitulation (<span style="color:green">ok</span>)</li>
-<li>Chronomètre (<span style="color:orange">en cours</span>)</li>
+<li>Authentification jury</li>
+<li>Planning des soutenances</li> 
+<li>Grille de notation</li>
+<li>Grille de récapitulation</li>
+<li>Chronomètre</li>
+<li>Base de données</li>
+
+### Fonctionnalités à venir :
 <li>Panel administrateur (<span style="color:red">prochainement</span>)
-<li>Base de données (<span style="color:green">ok</span>)</li>
 <li>Importation des rapports (<span style="color:red">prochainement</span>)</li>
 
-### Version actuelle : v0.6.3
+### Version actuelle : v1.3
 ### Navigateur supporté :
 <p>Chrome 35+, Firefox 31+, IE 10+, Edge 25+</p>
 
@@ -35,7 +37,12 @@ La documentation sera bientôt disponible en ligne et en version .pdf, une aide 
 ---
 ###Changelog :
 <ul>
-<li>v0.6.3 (Fevrier 11, 2016)</li>
+<li>v1.3 (Mars 18, 2016)</li>
+<ul>
+<li>Affichage des soutenances via un planning</li>
+<li>Gestion des erreurs et redirections</li>
+<li>Vérification via checkbox pour la grille d'évaluation + date et heure</li>
+</ul>
 <ul>
 <li>Update Laravel 5.2</li>
 <li>Nouveau visuel pour la grille d'évaluation ainsi que la grille de récapitulation;</li>
