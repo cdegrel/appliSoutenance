@@ -230,6 +230,7 @@ html, body{
     display: block;
     margin: auto;
     overflow: hidden;
+    border: 5px solid #fff;
 
 
     -webkit-border-radius: 500px;
@@ -396,6 +397,31 @@ input[type=submit]{
     -o-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
 
+}
+input:disabled{
+    opacity: 0.8;
+
+    -webkit-box-shadow: 0 1px 3px 0px transparent;
+    -moz-box-shadow: 0 1px 3px 0px transparent;
+    box-shadow: 0 1px 3px 0px transparent;
+}
+input:disabled:hover{
+    opacity: 0.8;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+
+    -webkit-transform: scale(1)!important;
+    -moz-transform: scale(1)!important;
+    -ms-transform: scale(1)!important;
+    -o-transform: scale(1)!important;
+    transform: scale(1)!important;
+
+    -webkit-box-shadow: 0px 5px 15px 0px transparent!important;
+    -moz-box-shadow: 0px 5px 15px 0px transparent!important;
+    box-shadow: 0px 5px 15px 0px transparent!important;
 }
 input[type=submit]:hover, input[type=button]:hover{
     -webkit-transition: 0.25s;

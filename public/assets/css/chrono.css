@@ -1,4 +1,4 @@
-.chrono{
+.chrono, .rapport{
     position: fixed;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -8,7 +8,7 @@
     display: block;
     z-index:999;
 }
-#fond input[type="button"]{
+#fond input[type="button"], .btnRapport{
     border: 0px solid transparent;
     cursor: pointer;
 }
@@ -22,11 +22,19 @@
     color: white;
 }
 
-#chronotime{
+#chronotime, .btnRapport{
     display: block;
     text-align: center;
     padding:10px 30px;
     margin-bottom: 10px;
     background-color: #3C4249;
     color: white;
+}
+.rapport{
+	top: 120px;
+	right: 42px;
+}
+.btnRapport{
+	background-color: rgba(59,200,122,0.8);
+	border-radius: 3px;
 }

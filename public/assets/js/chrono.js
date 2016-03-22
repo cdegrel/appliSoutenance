@@ -1,59 +1,124 @@
-var startTime = 0
-var start = 0
-var end = 0
-var diff = 0
-var timerID = 0
 
-function chrono(){
-	end = new Date()
-	diff =  start - end
-	diff = new Date(diff)
-	var msec = diff.getMilliseconds()
-	var sec = diff.getSeconds()
-	var min = diff.getMinutes()-45
-	var hr = diff.getHours()-1
+var sec = 0;
+var min = 0;
+var hrs = 0;
+var timer;
+var pause = false;
+var text = "";
+var duree = "";
+var duree2 = "";
+var dureesplit;
+var secTrop=0;
+var minTrop =0;
+var hrsvide = 0;
+var minvide = 0;
+var secvide = 0;
 
-	if (min < 10){
-		min = "0" + min
-	}
-	if (sec < 10){
-		sec = "0" + sec
-	}
-	if(msec < 10){
-		msec = "00" +msec
-	}
-	else if(msec < 100){
-		msec = "0" +msec
-	}
-	document.getElementById("chronotime").innerHTML = min + ":" + sec + ":" + msec
-	timerID = setTimeout("chrono()", 10)
+
+function Indiquermin()
+{
+    if(duree == ""){
+        duree = document.getElementById('chronotime').innerHTML;
+        duree2=duree;
+    }
+    dureesplit = duree2.split(':');
+    sec = parseInt(dureesplit[2]);
+    min = parseInt(dureesplit[1]);
+    hrs = parseInt(dureesplit[0]);
 }
-function chronoStart(){
-	document.chronoForm.startstop.value = "STOP"
-	document.chronoForm.startstop.onclick = chronoStop
-	document.chronoForm.reset.onclick = chronoReset
-	start = new Date()
-	chrono()
+
+function Chrono()
+{
+
+    if ((sec > 0) || (min >0) || (hrs>0))
+    {
+
+        sec = sec -1;
+
+        if(sec<0){
+            if (hrs>0) {
+                if(min==00){
+                    hrs = hrs-1;
+                    min = 59;
+                    sec = 59;
+                }else{
+                    min = min-1;
+                    sec = 59;
+                }
+            }else if (min >0){
+                min = min -1;
+                sec = 59;
+            }else if (min==0){
+                sec = 59;
+            }
+
+        }
+
+        if (hrs < 10){
+            hrsvide = "0";
+        }else{
+            hrsvide = "";
+        }
+
+        if (min < 10){
+            minvide = "0";
+        }else{
+            minvide = "";
+        }
+        if (sec < 10){
+            secvide = "0";
+        }else{
+            secvide = "";
+        }
+
+        text = hrsvide +hrs + ':' + minvide + min + ':' + secvide + sec;
+        duree2=text;
+    }
+    else
+    {
+
+        secTrop = secTrop +1;
+        if (secTrop >59) {
+            minTrop = minTrop +1;
+            secTrop = 0;                    }
+        text = "+ " + minTrop + "m" + secTrop + "s";
+    }
+    document.getElementById('chronotime').innerHTML = text;
 }
-function chronoContinue(){
-	document.chronoForm.startstop.value = "STOP"
-	document.chronoForm.startstop.onclick = chronoStop
-	document.chronoForm.reset.onclick = chronoReset
-	start = new Date()-diff
-	start = new Date(start)
-	chrono()
+
+
+function DemarrerChrono()
+{
+    Indiquermin();
+    timer = setInterval('Chrono()', 1000);
+    document.getElementById('btn_dem').style.display = 'none';
+    document.getElementById('btn_pause').style.display = 'inline';
+
 }
-function chronoReset(){
-	document.getElementById("chronotime").innerHTML = "00:00:000"
-	start = new Date()
+function ArreterChrono()
+{
+    clearInterval(timer);
+    pause=false;
+    duree2=duree;
+    document.getElementById('chronotime').innerHTML = duree2;
+    document.getElementById('btn_dem').style.display = 'inline';
+    document.getElementById('btn_pause').style.display = 'none';
 }
-function chronoStopReset(){
-	document.getElementById("chronotime").innerHTML = "00:00:000"
-	document.chronoForm.startstop.onclick = chronoStart
-}
-function chronoStop(){
-	document.chronoForm.startstop.value = "START"
-	document.chronoForm.startstop.onclick = chronoContinue
-	document.chronoForm.reset.onclick = chronoStopReset
-	clearTimeout(timerID)
+
+function PauseChrono()
+{
+    if (!pause)
+    {
+        pause = true;
+        clearInterval(timer);
+        text = '' + text;
+        document.getElementById('chronotime').innerHTML = text;
+        document.getElementById('btn_pause').value = 'START';
+    }
+    else
+    {
+        pause = false;
+        DemarrerChrono();
+        document.getElementById('btn_pause').value = 'PAUSE';
+    }
 }
