@@ -109,7 +109,6 @@ class GroupeProjetController extends Controller
     public function post($id, Request $request)
     {
         $idE = Auth::user()->id;
-        //a modifier lors de l'utilisation des sessions
         $enseignant = EnseignantEvaluationRole::join('enseignants','enseignants.id','=','enseignant_evaluation_role.enseignant_id')
                                                 ->where('enseignant_id', $idE)
                                                 ->where('evaluation_id', $id)
