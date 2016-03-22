@@ -24,9 +24,8 @@ Développé avec le framework <b>Laravel 5.2</b> dans le cadre d'un projet tuteu
 
 ### Fonctionnalités à venir :
 <li>Panel administrateur (<span style="color:red">prochainement</span>)
-<li>Importation des rapports (<span style="color:red">prochainement</span>)</li>
 
-### Version actuelle : v1.3
+### Version actuelle : v1.3.1
 ### Navigateur supporté :
 <p>Chrome 35+, Firefox 31+, IE 10+, Edge 25+</p>
 
@@ -36,6 +35,14 @@ La documentation sera bientôt disponible en ligne et en version .pdf, une aide 
 
 ---
 ###Changelog :
+
+<li>v1.3.1 (Mars 22, 2016)</li>
+<ul>
+<li>Visualisation du rapport de la soutenance selectionnée</li>
+<li>Correctif mineur au niveau de la charte graphique</li>
+<li>Ajout de l'option temps dépassé sur le chronomètre</li>
+<li>Visualisation sur le planning des soutenances du professeur tuteur</li>
+</ul>
 
 <li>v1.3 (Mars 18, 2016)</li>
 <ul>
