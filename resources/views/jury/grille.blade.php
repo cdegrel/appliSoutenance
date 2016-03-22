@@ -18,9 +18,14 @@
             <div class="chrono">
                 <span id="chronotime" class="crd wdt-max bg-ft">{{ $idEvaluation->dureeTypeEvaluation }}</span>
                 <form name="chronoForm" id="fond">
-                    <input type="button" class= "start crd" name="startstop" value="START" onClick="chronoStart()" />
-                    <input type="button" class="reset crd" name="reset" value="RESET" onClick="chronoReset()" />
+                    <input type="button" class= "start crd" name="btn_dem" id="btn_dem" value="START" onclick="DemarrerChrono();" />
+                    <input type="button" class= "start crd" name="btn_pause" id="btn_pause" value="PAUSE" onclick="PauseChrono();" style="display: none;" />
+                    <input type="button" class="reset crd" name="btn_stop" id="btn_stop" value="RESET" onclick="ArreterChrono();"/>
                 </form>
+            </div>
+
+            <div class="rapport">
+            	<button class="btnRapport" id="rapport">RAPPORT</button>
             </div>
 
             <section class="sct-grd bg-marg-bt">
@@ -51,7 +56,7 @@
                             @foreach($etudiants as $etudiant)
 
                                 <div class="item-user">
-                                    <div class="crcl-wht crd"></div>
+                                    <div class="crcl-wht  crd" style="background: url(../../public/assets/img/etudiants/{{ $etudiant->photoEtudiant }}) 50% 50% white; background-size: cover;"></div>
 
                                     <div class="title-bg-ctnt ttl-btm">
                                         <div class="title-crd-wht crd wdt-max">
@@ -76,11 +81,11 @@
 
                             @foreach($roles as $role)
                                 <div class="item-user">
-                                    <div class="crcl-wht crd"></div>
+                                    <div class="crcl-wht crd" style="background: url(../../public/assets/img/enseignants/{{ $role->photoEnseignant }}) 50% 50% white; background-size: cover;"></div>
 
                                     <div class="title-bg-ctnt ttl-btm">
                                         <div class="title-crd-wht crd wdt-max">
-                                            <p class="llt-ft"@if($role->libelleRole == 'maitre') style="color:red;" @endif >{{ $role->nomEnseignant }} {{ $role->prenomEnseignant }} {{ $role->vote }}</p>
+                                            <p class="llt-ft"@if($role->libelleRole == 'maitre') style="color:red;" @endif >{{ $role->nomEnseignant }} {{ $role->prenomEnseignant }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +161,13 @@
                         <h1 class="title-mid">Question(s) récurrente(s)</h1>
                     </div>
 
-                    <div class="wdt-max-nln-blc bg-marg-bt">
+                    <div id="question" class="ctnt-txt-area wdth-md">
+                        <div class="crd crd-Q title-crd-wht">
+                            <p>Question 0</p>
+                            <textarea name="Question1" class="crd crd-txtarea" placeholder="Réponse ..."></textarea>
+                        </div>
+                    </div>
+                    <div class="wdt-max-nln-blc bg-marg-bt" id="questionnaire">
                         <div class="ctnt-txt-area wdth-md">
                             <div class="crd crd-Q title-crd-wht">
                                 <p>Question 1</p>
@@ -224,6 +235,7 @@
     <!--script calcul de la note (obligatoirement dans le html)-->
     <script>
         $(document).ready(function(){
+            $('#question').css("visibility","hidden");
             $('#valider').prop('disabled', true);
             calculNoteFunction();
         });
@@ -235,6 +247,12 @@
                 $('#valider').prop('disabled', true);
             }
         });
+
+        $('#rapport').click(function(){
+        	window.open('../../public/rapports/{{ $idEvaluation->rapport }}');
+        });
+
+        //$('#question').clone(true).appendTo("#questionnaire");
 
         function calculNoteFunction() {
             var totalNoteMax = 0;
