@@ -15,6 +15,7 @@ class CreateGroupeProjetsTable extends Migration
         Schema::create('groupe_projets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('libelleSujet',50)->unique();
+            $table->string('rapport',100)->unique();
             $table->integer('enseignant_id')->unsigned();
             $table->timestamps();
 
